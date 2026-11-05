@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Terça-feira, 29 de dezembro, às 15h · Fazenda da Montanha, Rancho Queimado/SC">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Serena faz 1 aninho">
+<meta property="og:description" content="Terça-feira, 29 de dezembro, às 15h · Fazenda da Montanha">
+<meta property="og:image" content="https://convitedaserena.github.io/previa.jpg">
+<meta property="og:image:width" content="630">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://convitedaserena.github.io/">
+<meta name="theme-color" content="#F7E6E3">
+<title>Serena faz 1 aninho</title>
+</head>
+<body>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Fredoka:wght@400..700&family=Nunito:wght@600;700;800&display=swap">
+<style>
+  /* Layout: one fixed 540×968 phone screen, scaled to fit, four scenes stacked inside */
+  :root{
+    --creme:#FBF4EA; --rosinha:#F7E6E3; --blush:#E8A9B0; --rosa:#A8505E;
+    --madeira:#9A7457; --marrom:#5A3E33; --papel:#FFFDF8;
+    --script:'Great Vibes','Brush Script MT',cursive;
+    --round:Fredoka,Nunito,'Trebuchet MS',sans-serif;
+    --small:Nunito,'Trebuchet MS',sans-serif;
+  }
+  html,body{height:100%}
+  body{background:var(--rosinha);color:var(--marrom);margin:0;overflow:hidden;
+       padding-left:max(0px, env(safe-area-inset-left, 0px));padding-right:max(0px, env(safe-area-inset-right, 0px))}
+  .wrap{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+  .holder{position:relative;overflow:hidden;border-radius:0;box-shadow:0 10px 40px rgba(90,62,51,.15)}
+  .stage{position:absolute;left:0;top:0;width:540px;height:968px;transform-origin:0 0;background:var(--creme);overflow:hidden}
+  .scene{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .9s ease, visibility 0s linear .9s}
+  .scene.on{opacity:1;visibility:visible;transition:opacity .9s ease}
+  .abs{position:absolute;margin:0}
+  .bg{position:absolute;left:0;top:0;width:540px;height:968px;object-fit:cover}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+  :focus-visible{outline:2px solid var(--rosa);outline-offset:4px;border-radius:12px}
+
+  /* capa */
+  .nome{font-family:var(--script);color:var(--rosa);-webkit-text-stroke:10px var(--papel);paint-order:stroke fill;
+        filter:drop-shadow(0 2px 3px rgba(90,62,51,.18));text-align:center;line-height:1.1}
+  .selo{position:absolute;left:150px;top:392px;width:240px;height:160px;border-radius:12px}
+  .toque{font-family:var(--small);font-size:12px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--madeira);text-align:center;
+         animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+  .abrindo .capa-arte{transform:scale(1.08);transition:transform 1.2s ease}
+  .capa-arte{position:absolute;inset:0;transform-origin:50% 48%}
+
+  /* principal */
+  .janela{position:absolute;left:172px;top:236px;width:196px;height:272px;box-sizing:border-box;padding:7px;background:var(--papel);
+          border-radius:98px 98px 22px 22px;filter:drop-shadow(0 3px 5px rgba(90,62,51,.2))}
+  .janela video{display:block;width:182px;height:258px;box-sizing:border-box;object-fit:cover;border:2px solid var(--madeira);
+          border-radius:91px 91px 16px 16px;background:var(--rosinha)}
+  .botoes{position:absolute;left:40px;top:808px;width:460px;display:flex;justify-content:center;gap:22px}
+  .botao{width:120px;display:flex;flex-direction:column;align-items:center;gap:6px;font-family:var(--round);font-size:15px;font-weight:600;line-height:1.2;text-align:center;color:var(--marrom)}
+  .botao img{width:84px;height:76px;object-fit:contain;transition:transform .25s ease}
+  .botao:hover img,.botao:focus-visible img{transform:translateY(-3px) rotate(-3deg)}
+  .botao.chama img{animation:chama 3.2s ease-in-out infinite}
+  .botao:nth-child(2).chama img{animation-delay:.4s}.botao:nth-child(3).chama img{animation-delay:.8s}
+  @keyframes chama{0%,82%,100%{transform:none}88%{transform:translateY(-5px) rotate(-4deg)}94%{transform:translateY(0) rotate(2deg)}}
+  .sobe{opacity:0;transform:translateY(14px)}
+  .on .sobe{opacity:1;transform:none;transition:opacity .8s ease, transform .8s ease}
+  .on .d1{transition-delay:.35s}.on .d2{transition-delay:.55s}.on .d3{transition-delay:.75s}.on .d4{transition-delay:.95s}.on .d5{transition-delay:1.15s}
+
+  /* presentes */
+  .item{display:flex;align-items:center;gap:12px;padding:10px 16px;background:var(--papel);border:2px solid var(--rosinha);border-radius:16px;
+        font-family:var(--round);font-size:18px;font-weight:500;line-height:1.3}
+  .ponto{width:12px;height:12px;flex-shrink:0;border-radius:6px}
+
+  /* som */
+  .som{position:fixed;z-index:20;top:calc(12px + env(safe-area-inset-top, 0px));right:calc(12px + env(safe-area-inset-right, 0px));
+       width:44px;height:44px;border-radius:22px;background:var(--papel);box-shadow:0 2px 8px rgba(90,62,51,.18);
+       display:flex;align-items:center;justify-content:center}
+  .som[hidden]{display:none}
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;transition-delay:0s!important}
+  }
+</style>
+
+<div class="wrap">
+  <div class="holder" id="holder">
+    <div class="stage" id="stage">
+
+      <!-- Tela 1 · Capa -->
+      <section class="scene on" id="capa" aria-label="Capa do convite">
+        <div class="capa-arte">
+          <img class="bg" src="fundo-capa.jpg" alt="Arco-íris com a pomba, envelope rosa com selo S e Jesus abraçando a Serena dentro da Arca">
+          <p class="abs nome" style="left:71px;top:217px;z-index:2;width:360px;font-size:132px;height:115px">Serena</p>
+          <img class="abs" src="fita.svg" alt="" style="left:103px;top:321px;width:334px;height:80px;filter:drop-shadow(0 2px 3px rgba(90,62,51,.16))">
+          <p class="abs" style="left:140px;top:332px;z-index:3;width:260px;text-align:center;font-family:var(--round);font-size:32px;font-weight:600;line-height:1.2;letter-spacing:.5px">faz 1 aninho</p>
+        </div>
+        <button class="selo" id="abrir" aria-label="Abrir o convite"></button>
+        <p class="abs toque" style="left:60px;top:570px;width:420px">Toque no selo para abrir</p>
+        <div class="abs" style="left:210px;top:592px;width:120px;display:flex;align-items:center;justify-content:center;gap:6px">
+          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A8505E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+          <span style="font-family:var(--small);font-size:12px;font-weight:700;letter-spacing:1px;color:var(--rosa)">ative o som</span>
+        </div>
+      </section>
+
+      <!-- Tela 2 · Principal -->
+      <section class="scene" id="principal" aria-label="Informações da festa">
+        <img class="bg" src="fundo-principal.jpg" alt="" style="top:-80px;height:1048px">
+        <div class="janela sobe d1">
+          <video id="fotos" src="fotos-serena.mp4" muted loop playsinline preload="auto" aria-label="Fotos do ensaio da Serena"></video>
+        </div>
+        <div class="abs sobe d2" style="left:40px;top:528px;width:460px;display:flex;flex-direction:column;align-items:center;text-align:center">
+          <p style="margin:0;font-family:var(--round);font-size:24px;font-weight:500;line-height:1.2">Grandes coisas</p>
+          <p style="margin:0;font-family:var(--script);font-size:46px;line-height:1.15;color:var(--rosa)">fez o Senhor por nós,</p>
+          <p style="margin:0;font-family:var(--round);font-size:20px;font-weight:500;line-height:1.3">por isso estamos alegres</p>
+          <p style="margin:8px 0 0;font-family:var(--small);font-size:11px;font-weight:800;letter-spacing:4px;text-transform:uppercase;color:var(--madeira)">Salmos 126:3</p>
+        </div>
+        <div class="abs sobe d3" style="left:90px;top:690px;width:360px;height:62px;display:flex;align-items:center;justify-content:center;gap:18px">
+          <p style="margin:0;font-family:var(--round);font-size:48px;font-weight:600;line-height:1;color:var(--rosa);font-variant-numeric:tabular-nums">29</p>
+          <div style="width:2px;height:46px;background:var(--blush);border-radius:1px"></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:2px">
+            <p style="margin:0;font-family:var(--small);font-size:13px;font-weight:800;letter-spacing:3px;text-transform:uppercase">Dezembro</p>
+            <p style="margin:0;font-family:var(--small);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--madeira)">Terça-feira</p>
+          </div>
+          <div style="width:2px;height:46px;background:var(--blush);border-radius:1px"></div>
+          <p style="margin:0;font-family:var(--round);font-size:40px;font-weight:600;line-height:1;color:var(--rosa)">15h</p>
+        </div>
+        <p class="abs sobe d4" style="left:40px;top:762px;width:460px;text-align:center;font-family:var(--round);font-size:16px;font-weight:500;line-height:1.3">Fazenda da Montanha · Rancho Queimado/SC</p>
+        <nav class="botoes sobe d5" aria-label="Ações do convite">
+          <a class="botao chama" href="https://wa.me/554896207068?text=Ol%C3%A1!%20Quero%20confirmar%20minha%20presen%C3%A7a%20no%20aniversário%20de%201%20aninho%20da%20Serena%2C%20dia%2029%2F12.%20Nome%3A%20" target="_blank" rel="noopener">
+            <img src="icone-presenca.png" alt=""><span>Confirmar presença</span>
+          </a>
+          <a class="botao chama" href="https://maps.app.goo.gl/Hx2H9fA5sxjTA28C8" target="_blank" rel="noopener">
+            <img src="icone-local.png" alt=""><span>Local da festa</span>
+          </a>
+          <button class="botao chama" id="irPresentes" type="button">
+            <img src="icone-presentes.png" alt=""><span>Sugestões de presente</span>
+          </button>
+        </nav>
+      </section>
+
+      <!-- Tela 3 · Presentes -->
+      <section class="scene" id="presentes" aria-label="Sugestões de presente">
+        <img class="bg" src="fundo-presentes.jpg" alt="">
+        <div class="abs sobe d1" style="left:59px;top:440px;width:420px;display:flex;flex-direction:column;align-items:center;text-align:center">
+          <p style="margin:0;font-family:var(--round);font-size:24px;font-weight:500;line-height:1.2">Sugestões de</p>
+          <p style="margin:0;font-family:var(--script);font-size:58px;line-height:1.05;color:var(--rosa)">presente</p>
+        </div>
+        <div class="abs sobe d2" style="left:84px;top:542px;width:372px;display:flex;flex-direction:column;gap:12px">
+          <div class="item"><span class="ponto" style="background:#E8A9B0"></span>Roupa: tamanho [__]</div>
+          <div class="item"><span class="ponto" style="background:#A9BFA0"></span>Calçado: número [__]</div>
+          <div class="item"><span class="ponto" style="background:#A9C6DE"></span>Brinquedos educativos</div>
+        </div>
+        <p class="abs sobe d3" style="left:76px;top:790px;width:220px;font-family:var(--script);font-size:40px;line-height:1.1;color:var(--rosa)">Espero você!</p>
+        <button class="abs sobe d4" id="voltar" type="button" style="left:78px;top:835px;display:flex;align-items:center;gap:6px;padding:8px 0;font-family:var(--small);font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--rosa)">
+          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A8505E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          Voltar ao convite
+        </button>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<button class="som" id="som" type="button" aria-label="Desligar a música" hidden>
+  <svg id="somOn" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8505E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+  <svg id="somOff" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A8505E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M22 9l-6 6"/><path d="M16 9l6 6"/></svg>
+</button>
+<audio id="musica" src="cristo-me-ama.mp3" loop preload="auto"></audio>
+
+<script>
+(function(){
+  var stage=document.getElementById('stage'), holder=document.getElementById('holder');
+  function fit(){
+    var s=Math.min(window.innerWidth/540, window.innerHeight/968);
+    stage.style.transform='scale('+s+')';
+    holder.style.width=(540*s)+'px'; holder.style.height=(968*s)+'px';
+  }
+  fit(); window.addEventListener('resize', fit);
+
+  var cenas={capa:document.getElementById('capa'),principal:document.getElementById('principal'),presentes:document.getElementById('presentes')};
+  function mostrar(nome){ Object.keys(cenas).forEach(function(k){ cenas[k].classList.toggle('on', k===nome); }); }
+
+  var musica=document.getElementById('musica'), video=document.getElementById('fotos'), som=document.getElementById('som');
+  musica.volume=0.7;
+  function tocar(el){ try{ var p=el.play(); if(p&&p.catch) p.catch(function(){}); }catch(e){} }
+
+  var aberto=false;
+  document.getElementById('abrir').addEventListener('click', function(){
+    if(aberto) return; aberto=true;
+    tocar(musica); tocar(video);
+    som.hidden=false;
+    cenas.capa.classList.add('abrindo');
+    setTimeout(function(){ mostrar('principal'); }, 900);
+  });
+  document.getElementById('irPresentes').addEventListener('click', function(){ mostrar('presentes'); });
+  document.getElementById('voltar').addEventListener('click', function(){ mostrar('principal'); });
+
+  som.addEventListener('click', function(){
+    var on=!musica.paused;
+    if(on){ musica.pause(); } else { tocar(musica); }
+    document.getElementById('somOn').style.display=on?'none':'';
+    document.getElementById('somOff').style.display=on?'':'none';
+    som.setAttribute('aria-label', on?'Ligar a música':'Desligar a música');
+  });
+})();
+</script>
+
+</body>
+</html>
