@@ -55,7 +55,7 @@
           border-radius:98px 98px 22px 22px;filter:drop-shadow(0 3px 5px rgba(90,62,51,.2))}
   .janela video{display:block;width:182px;height:258px;box-sizing:border-box;object-fit:cover;border:2px solid var(--madeira);
           border-radius:91px 91px 16px 16px;background:var(--rosinha)}
-  .botoes{position:absolute;left:40px;top:808px;width:460px;display:flex;justify-content:center;gap:22px}
+  .botoes{position:absolute;left:40px;top:808px;width:460px;display:flex;justify-content:center;gap:56px}
   .botao{width:120px;display:flex;flex-direction:column;align-items:center;gap:6px;font-family:var(--round);font-size:15px;font-weight:600;line-height:1.2;text-align:center;color:var(--marrom)}
   .botao img{width:84px;height:76px;object-fit:contain;transition:transform .25s ease}
   .botao:hover img,.botao:focus-visible img{transform:translateY(-3px) rotate(-3deg)}
@@ -132,29 +132,7 @@
           <a class="botao chama" href="https://maps.app.goo.gl/Hx2H9fA5sxjTA28C8" target="_blank" rel="noopener">
             <img src="icone-local.png" alt=""><span>Local da festa</span>
           </a>
-          <button class="botao chama" id="irPresentes" type="button">
-            <img src="icone-presentes.png" alt=""><span>Sugestões de presente</span>
-          </button>
         </nav>
-      </section>
-
-      <!-- Tela 3 · Presentes -->
-      <section class="scene" id="presentes" aria-label="Sugestões de presente">
-        <img class="bg" src="fundo-presentes.jpg" alt="">
-        <div class="abs sobe d1" style="left:59px;top:440px;width:420px;display:flex;flex-direction:column;align-items:center;text-align:center">
-          <p style="margin:0;font-family:var(--round);font-size:24px;font-weight:500;line-height:1.2">Sugestões de</p>
-          <p style="margin:0;font-family:var(--script);font-size:58px;line-height:1.05;color:var(--rosa)">presente</p>
-        </div>
-        <div class="abs sobe d2" style="left:84px;top:542px;width:372px;display:flex;flex-direction:column;gap:12px">
-          <div class="item"><span class="ponto" style="background:#E8A9B0"></span>Roupa: tamanho [__]</div>
-          <div class="item"><span class="ponto" style="background:#A9BFA0"></span>Calçado: número [__]</div>
-          <div class="item"><span class="ponto" style="background:#A9C6DE"></span>Brinquedos educativos</div>
-        </div>
-        <p class="abs sobe d3" style="left:76px;top:790px;width:220px;font-family:var(--script);font-size:40px;line-height:1.1;color:var(--rosa)">Espero você!</p>
-        <button class="abs sobe d4" id="voltar" type="button" style="left:78px;top:835px;display:flex;align-items:center;gap:6px;padding:8px 0;font-family:var(--small);font-size:12px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--rosa)">
-          <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A8505E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-          Voltar ao convite
-        </button>
       </section>
 
     </div>
@@ -177,7 +155,7 @@
   }
   fit(); window.addEventListener('resize', fit);
 
-  var cenas={capa:document.getElementById('capa'),principal:document.getElementById('principal'),presentes:document.getElementById('presentes')};
+  var cenas={capa:document.getElementById('capa'),principal:document.getElementById('principal')};
   function mostrar(nome){ Object.keys(cenas).forEach(function(k){ cenas[k].classList.toggle('on', k===nome); }); }
 
   var musica=document.getElementById('musica'), video=document.getElementById('fotos'), som=document.getElementById('som');
@@ -192,8 +170,6 @@
     cenas.capa.classList.add('abrindo');
     setTimeout(function(){ mostrar('principal'); }, 900);
   });
-  document.getElementById('irPresentes').addEventListener('click', function(){ mostrar('presentes'); });
-  document.getElementById('voltar').addEventListener('click', function(){ mostrar('principal'); });
 
   som.addEventListener('click', function(){
     var on=!musica.paused;
